@@ -4,9 +4,11 @@
   "main": "src/main.js",
   "type": "module",
   "scripts": {
+    "beautify": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --inspect src/main.js",
-    "watch": "sass --watch src/resources/scss/app.scss src/public/css/app.css"
+    "watch": "sass --watch src/resources/scss/app.scss src/public/css/app.css",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -25,13 +27,19 @@
   },
   "homepage": "https://github.com/khoitran2003/nodejs_blog#readme",
   "description": "",
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier --tab-width 4 --single-quote --trailing-comma all --write"
+  },
   "dependencies": {
     "express": "^5.1.0",
     "express-handlebars": "^8.0.3"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
     "sass": "^1.89.2"
   }
 }
